@@ -22,7 +22,7 @@ jobs:
       run: |
         sbt package
         sbt makePom
-        mvn clean install -DskipTests=true
+        for f in $(find ./ -type f -wholename "*/target/*.pom"); do mv $f $(dirname $f)/pom.xml; done
 
     - name: WhiteSource Unified Agent Scan
       env:
