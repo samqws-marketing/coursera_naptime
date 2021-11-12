@@ -22,6 +22,7 @@ jobs:
       run: |
         sbt package
         sbt makePom
+        mvn clean install -DskipTests=true
 
     - name: WhiteSource Unified Agent Scan
       env:
